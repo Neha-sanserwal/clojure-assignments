@@ -2,13 +2,13 @@
   (:require [clojure.test :refer [deftest testing is are]]
             [assignments.conditions :as c]))
 
-(deftest ^:kaocha/pending safe-division-test
+(deftest ^:implemented safe-division-test
   (testing "non zero denominator"
     (is (= 2 (c/safe-divide 4 2))))
   (testing "zero denominator"
     (is (nil? (c/safe-divide 3 0)))))
 
-(deftest ^:kaocha/pending informative-division-test
+(deftest ^:implemented informative-division-test
   (testing "non zero denominator calculates result"
     (is (= 2 (c/informative-divide 4 2))))
   (testing "zero denominator yields :infinite"
@@ -47,7 +47,7 @@
     (is (= [0 0] (c/duplicate-first [0])))
     (is (= [0 1 0] (c/duplicate-first [0 1])))))
 
-(deftest ^:kaocha/pending five-point-someone-test
+(deftest ^:implementing five-point-someone-test
   (testing ":chetan-bhagat when y is 5"
     (are [x y] (= :chetan-bhagat (c/five-point-someone x y))
       0  5

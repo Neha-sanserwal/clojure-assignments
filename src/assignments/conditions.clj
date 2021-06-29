@@ -2,15 +2,17 @@
 
 (defn safe-divide
   "Returns the result of x/y unless y is 0. Returns nil when y is 0"
-  {:level :easy
-   :use   '[when-not zero?]}
-  [x y])
+
+  [x y] (when-not (zero? y )  
+            nil
+            (quot x y)
+  ) )
 
 (defn informative-divide
   "Returns the result of x/y unless y is 0. Returns :infinite when y is 0"
   {:level :easy
    :use   '[if-not zero?]}
-  [x y])
+  [x y] (if-not (zero? y)  (quot x y) :infinite))
 
 (defn harishchandra
   "Only returns truthy values as themselves.
@@ -35,13 +37,17 @@
   [coll])
 
 (defn five-point-someone
-  "Returns :chetan-bhagat if y is 5.
+  "Returns  chetan-bhagat if y is 5.
   If x is 5 is returns :satan-bhagat.
   If x is greater than y it returns :greece
   Otherwise it returns :universe"
   {:level :easy
    :use   '[cond]}
-  [x y])
+  [x y] (cond
+          (= 5 y) :chetan-bhagat
+          (= 5 x) :satan-bhagat
+          (> x y) :greece
+          :else  :universe))
 
 (defn conditions-apply
   "Given a collection of any length, returns:
